@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="10" fill="#0B0D0E" />
+  <!-- Minimal futuristic aerodynamic dual-wing symbol -->
+  <path d="M10 32L24 12L38 32L24 25L10 32Z" fill="#B7FF45" />
+  <path d="M16 29L24 18L32 29L24 24L16 29Z" fill="#FFFFFF" fill-opacity="0.9" />
+  <circle cx="24" cy="24" r="2.5" fill="#0B0D0E" />
+</svg>
