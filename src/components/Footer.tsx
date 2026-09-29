@@ -83,9 +83,8 @@ export const Footer: React.FC<FooterProps> = ({ onRequestDemo, onContactClick })
               <div className="flex items-start gap-2 pt-1">
                 <MapPin className="w-4 h-4 text-[#A6AAA9] flex-shrink-0 mt-0.5" />
                 <div className="text-xs font-mono-tech leading-relaxed">
-                  P.O. Box 222<br />
-                  Leumeah NSW 2560<br />
-                  Australia
+                  L.B NAGAR<br />
+                  HYDERABAD, TELANGANA
                 </div>
               </div>
 

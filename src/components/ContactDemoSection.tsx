@@ -63,7 +63,7 @@ export const ContactDemoSection: React.FC<ContactDemoSectionProps> = ({
             <span className="hidden sm:inline">•</span>
             <div className="flex items-center gap-2">
               <MapPin className="w-4 h-4 text-[#0B0D0E]" />
-              <span>Leumeah NSW 2560, Australia</span>
+              <span>L.B NAGAR, HYDERABAD, TELANGANA</span>
             </div>
           </div>
         </div>

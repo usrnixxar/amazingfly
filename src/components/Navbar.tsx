@@ -304,7 +304,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onRequestDemo, onContactClick })
                       </a>
                     </div>
                     <div className="mt-4 pt-3 border-t border-white/5 text-[11px] text-[#A6AAA9]">
-                      Sydney, NSW • Australia
+                      L.B NAGAR, HYDERABAD • TELANGANA
                     </div>
                   </div>
                 </div>

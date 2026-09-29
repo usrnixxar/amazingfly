@@ -85,63 +85,67 @@ export const DemoModal: React.FC<DemoModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto bg-black/80 backdrop-blur-xl animate-fadeIn">
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-black/80 backdrop-blur-xl transition-opacity" 
+        className="fixed inset-0" 
         onClick={onClose} 
       />
 
-      {/* Modal Dialog Content */}
-      <div className="relative z-10 w-full max-w-2xl rounded-3xl bg-[#151819] border border-white/15 p-6 sm:p-10 shadow-2xl overflow-hidden my-8">
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-6 right-6 p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
-          aria-label="Close Modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        {isSubmitted ? (
-          <div className="text-center py-12 animate-fadeIn">
-            <div className="w-16 h-16 rounded-full bg-[#B7FF45]/15 text-[#B7FF45] mx-auto flex items-center justify-center mb-6">
-              <CheckCircle2 className="w-8 h-8" />
-            </div>
-            <h3 className="text-3xl font-medium text-white mb-3">Request Received</h3>
-            <p className="text-lg text-[#F1F0EA]/85 font-light max-w-md mx-auto mb-8">
-              Thank you. The AmazingFly team will be in touch.
-            </p>
-            <div className="p-4 rounded-2xl bg-black/40 border border-white/5 text-xs text-[#A6AAA9] font-mono-tech max-w-md mx-auto mb-8">
-              A systems specialist will follow up at <strong className="text-white">{formData.businessEmail}</strong> regarding your requested deployment.
-            </div>
-            <button
-              onClick={onClose}
-              className="px-8 py-3 rounded-full bg-[#B7FF45] text-black font-semibold text-sm hover:bg-[#CEFF70] transition-colors"
-            >
-              Done
-            </button>
+      {/* Modal Dialog Content with max-height and inner scroll */}
+      <div className="relative z-10 w-full max-w-2xl rounded-3xl bg-[#151819] border border-white/15 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+        {/* Close Button Header */}
+        <div className="sticky top-0 z-20 bg-[#151819]/95 backdrop-blur-md px-6 sm:px-10 pt-6 pb-4 border-b border-white/10 flex items-center justify-between">
+          <div className="tech-label text-[#B7FF45]">
+            {initialMode === 'demo' ? 'AUTONOMOUS SYSTEMS DEMONSTRATION' : 'DIRECT OPERATIONS ENQUIRY'}
           </div>
-        ) : (
-          <div>
-            {/* Modal Header */}
-            <div className="mb-8">
-              <div className="tech-label text-[#B7FF45] mb-2">
-                {initialMode === 'demo' ? 'AUTONOMOUS SYSTEMS DEMONSTRATION' : 'DIRECT OPERATIONS ENQUIRY'}
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-medium text-white">
-                {initialMode === 'demo' ? 'Request an AmazingFly Demonstration' : 'Contact Operations & Engineering'}
-              </h2>
-              <p className="text-xs sm:text-sm text-[#A6AAA9] mt-2 font-light">
-                Please complete the form below or contact us directly at{' '}
-                <a href="mailto:support@amazingorganics.co" className="text-[#B7FF45] hover:underline">
-                  support@amazingorganics.co
-                </a>
-              </p>
-            </div>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white/80 hover:text-white transition-colors cursor-pointer"
+            aria-label="Close Modal"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Scrollable Form Body */}
+        <div className="overflow-y-auto px-6 sm:px-10 py-6 space-y-5">
+          {isSubmitted ? (
+            <div className="text-center py-10 animate-fadeIn">
+              <div className="w-16 h-16 rounded-full bg-[#B7FF45]/15 text-[#B7FF45] mx-auto flex items-center justify-center mb-6">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3 className="text-3xl font-medium text-white mb-3">Request Received</h3>
+              <p className="text-lg text-[#F1F0EA]/85 font-light max-w-md mx-auto mb-8">
+                Thank you. The AmazingFly team will be in touch.
+              </p>
+              <div className="p-4 rounded-2xl bg-black/40 border border-white/5 text-xs text-[#A6AAA9] font-mono-tech max-w-md mx-auto mb-8">
+                A systems specialist will follow up at <strong className="text-white">{formData.businessEmail}</strong> regarding your requested deployment.
+              </div>
+              <button
+                onClick={onClose}
+                className="px-8 py-3 rounded-full bg-[#B7FF45] text-black font-semibold text-sm hover:bg-[#CEFF70] transition-colors cursor-pointer"
+              >
+                Done
+              </button>
+            </div>
+          ) : (
+            <div>
+              {/* Modal Subtitle */}
+              <div className="mb-6">
+                <h2 className="text-2xl sm:text-3xl font-medium text-white">
+                  {initialMode === 'demo' ? 'Request an AmazingFly Demonstration' : 'Contact Operations & Engineering'}
+                </h2>
+                <p className="text-xs sm:text-sm text-[#A6AAA9] mt-2 font-light">
+                  Please complete the form below or contact us directly at{' '}
+                  <a href="mailto:support@amazingorganics.co" className="text-[#B7FF45] hover:underline">
+                    support@amazingorganics.co
+                  </a>
+                </p>
+              </div>
+
+              {/* Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* First Name */}
                 <div>
@@ -279,8 +283,9 @@ export const DemoModal: React.FC<DemoModalProps> = ({
                 An Amazing Organics technology initiative • ABN 77 680 690 993
               </div>
             </form>
-          </div>
-        )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
